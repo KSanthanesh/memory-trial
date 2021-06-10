@@ -1,5 +1,53 @@
 // Array of deck of card images
-const deckCards = ["black-rose.jpg", "black-rose.jpg", "orange-rose.jpg","orange-rose.jpg","purple-rose.jpg","purple-rose.jpg","green-rose.jpg", "green-rose.jpg", "pink-rose.jpg", "pink-rose.jpg", "red-rose.png", "red-rose.png", "white-rose.jpg", "white-rose.jpg", "yellow-rose.jpg", "yellow-rose.jpg"];
+const deckCards = [
+    {
+        img: "./assets/image/black-rose.jpg"
+    },
+    {
+        img: "./assets/image/black-rose.jpg"
+    },
+    {
+        img: "./assets/image/orange-rose.jpg"
+    },
+    {
+       img:  "./assets/image/orange-rose.jpg"
+    },
+    {
+        img: "./assets/image/purple-rose.jpg"
+    },
+    {
+        img: "./assets/image/purple-rose.jpg"
+    },
+    {
+        img: "./assets/image/green-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/green-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/pink-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/pink-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/red-rose.png"
+    },
+    {
+        img: "./assets/image/red-rose.png"
+    }, 
+    {
+        img: "./assets/image/white-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/white-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/yellow-rose.jpg"
+    }, 
+    {
+        img: "./assets/image/yellow-rose.jpg"
+    }];
 // global Arrays
 // access the <ul> with the class of .deck
 const deck = document.querySelector(".deck");
@@ -71,7 +119,7 @@ function startGame() {
         addImage.setAttribute("src", "img/" + shuffledDeck[i]);
 
         // Add an alt tag to the image
-        addImage.setAttribute ("img", "");
+        //addImage.setAttribute ("img", "./assets/image of deckCards");
 
         //Update the new <li> to the deck <ul>
         deck.appendChild(liTag);

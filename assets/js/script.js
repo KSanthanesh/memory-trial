@@ -1,8 +1,8 @@
 // Array of deck of card images
-const deckCards = ["assets/images/image of roses/black-rose.jpg", "assets/images/image of roses/black-rose.jpg", "assets/images/image of roses/green-rose.jpg", "assets/images/image of roses/green-rose.jpg", "assets/images/image of roses/pink-rose.jpg", "assets/images/image of roses/pink-rose.jpg", "assets/images/image of roses/red-rose.png", "assets/images/image of roses/red-rose.png", "assets/images/image of roses/white-rose.jpg", "assets/images/image of roses/white-rose.jpg", "assets/images/image of roses/yellow-rose.jpg", "assets/images/image of roses/yellow-rose.jpg",];
+const deckCards = ["black-rose.jpg", "black-rose.jpg", "green-rose.jpg", "green-rose.jpg", "pink-rose.jpg", "pink-rose.jpg", "red-rose.png", "red-rose.png", "white-rose.jpg", "white-rose.jpg", "yellow-rose.jpg", "yellow-rose.jpg"];
 // global Arrays
 // access the <ul> with the class of .deck
-let deck = document.querySelector(".deck");
+const deck = document.querySelector(".deck");
 
 //create an empty Array to store the opened cards
 let opened = [];
@@ -11,7 +11,7 @@ let opened = [];
 let matched = [];
 
 // Access the model
-let modal = document.getElementById("model");
+const modal = document.getElementById("model");
 // Access the reset button
 let reset = document.querySelector(".reset-btn");
 // Access the play again button
@@ -22,10 +22,10 @@ let movesCount = document.querySelector(".moves-counter");
 
 // Create variable for moves counter, start the count at zero
 let moves = 0;
-let star = document.getElementById("star-rating").querySelectorAll(".star");
+const star = document.getElementById("star-rating").querySelectorAll(".star");
 
 let starCount = 3;
-let timeCounter = document.querySelector(".timer");
+const timeCounter = document.querySelector(".timer");
 
 let time;
 
@@ -48,20 +48,20 @@ function shuffle(array) {
 }
 function startGame() {
     //Invoke shuffle function and store in varaiable
-    let shuffledDeck = shuffle(deckCards);
+    const shuffledDeck = shuffle(deckCards);
 
     //iterate over deck of cards Array
 
     for (let i=0; i < shuffledDeck.length; i++) {
         // create the <li> tags
-        let liTag = document. createElement('LI');
+        const liTag = document. createElement('LI');
 
         //Give <li> class of card
 
         liTag.classList.add('card');
 
         //create the <img> tags
-        let addImage = document.createElement('IMG');
+        const addImage = document.createElement('IMG');
 
         //Append <img> to <li>
 
@@ -82,7 +82,7 @@ function startGame() {
 startGame();
 function removeCard() {
     while (deck.hasChildNodes()) {
-        deck.removechilds(deck.firstChild);
+        deck.removeChild(deck.firstChild);
     }
 }
 function timer() {
@@ -110,8 +110,8 @@ function resetEverything () {
     timeCounter.innerHTML = "<i class = 'fa fa-hourglass-start'></i>" + "Timer: 00:00";
 
     //Reset star count and add the class back to show starts again
-     star[1].firstElementchild.classlist.add("fa-star");
-     star[2].firstElementchild.classlist.add("fa-star");
+     star[1].firstElementChild.classList.add("fa-star");
+     star[2].firstElementChild.classList.add("fa-star");
      starCount = 3;
 
      //Reset moves count abd reset its innerHTML
@@ -129,7 +129,7 @@ function resetEverything () {
      startGame();
 
 }
-function movescounter() {
+function movesCounter() {
     movesCount.innerHtml ++;
     moves++;
 }
@@ -152,50 +152,53 @@ function compareTwo() {
     if (opened.length === 2 && opened[0].src === opened[1].src) {
         match();
     } else if (opened.length === 2 && opened[0].src != opened[1].src) {
-        nomatch();
-}
+        noMatch();
+  }
 }
 function match() {
     setTimeout (function() {
         opened[0].parentElement.classList.add("match");
         opened[1].parentElement.classList.add("match");
-        matched.push(...opened)
+        matched.push(...opened);
 
         document.body.style.pointerEvents = "auto";
         winGame();
-        opened();
+        opened = [];
+
     }, 600);
-    movescounter();
+
+    movesCounter();
     starRating();
 }
 
-function nomatch() {
+function noMatch() {
     setTimeout (function() {
         opened[0].parentElement.classList.remove("flip");
         opened[1].parentElement.classList.remove("flip");
 
         document.body.style.pointerEvents = "auto";
         
-        opened();
+        opened = [];
     }, 700);
-    movescounter();
+    movesCounter();
     starRating();
 
 }
 function AddStats() {
-    let stats = document.querySelector(".modal-content");
+    const stats = document.querySelector(".modal-content");
     for (let i = 1; i <= 3; i++) {
-        let.statsElement = document.createElement("p");
+        const statsElement = document.createElement("p");
         statsElement.classList.add("stats");
         stats.appendChild(statsElement);
     }
     let p = stats.querySelectorAll("p.stats")
-    p[0].innerHTML = "Time tocomplete:" + minutes + "Minutes and" + seconds + "Seconds";
+    p[0].innerHTML = "Time to complete:" + minutes + "Minutes and" + seconds + "Seconds";
     p[1].innerHTML = "Moves Taken:" + moves;
-    p[1].innerHTML = "Your Star Rating is:" + starCount + "Out of 3";
+    p[2].innerHTML = "Your Star Rating is:" + starCount + "Out of 3";
 }
+
 function displayModal() {
-    let modelClose = document.getElementById("close")[0];
+    const modalClose = document.getElementsByClassName("close")[0];
 
 modal.style.display = "block";
 modalClose.onclick = function() {

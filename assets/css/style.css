@@ -12,6 +12,7 @@ html {
     box-sizing: border-box;
 }
 body {
+    
     font-family: "open Sans" sans-serif;
     font-size: 62.5%;
     letter-spacing: 1.5px;
@@ -117,11 +118,11 @@ h3 {
     margin: 1em 0 1em;
     width: 20em;
 }
-p.status {
+p.stats {
     font-weight: 600;
 
 }
-p.status:last-child {
+p.stats:last-child {
     margin-bottom: 1em;
 }
 .play-again-btn {
@@ -236,7 +237,7 @@ img {
     .model-content h2 {
         font-size: 5em;
     }
-    .modal img {
+    .modal-img {
         width: 30em;
     }
     .play-again-btn {

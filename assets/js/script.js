@@ -46,3 +46,86 @@ function shuffle(array) {
     }
     return array;
 }
+function startGame() {
+    //Invoke shuffle function and store in varaiable
+    let shuffledDeck = shuffle(deckCards);
+
+    //iterate over deck of cards Array
+
+    for (let i=0; i < shuffledDeck.length; i++) {
+        // create the <li> tags
+        let liTag = document. createElement('LI');
+
+        //Give <li> class of card
+
+        liTag.classList.add('card');
+
+        //create the <img> tags
+        let addImage = document.createElement('IMG');
+
+        //Append <img> to <li>
+
+        liTag.appendChild(addImage);
+
+        //set the img src path with the shuffled deck
+        addImage.setAttribute("src", "img/" + shuffledDeck[i]);
+
+        // Add an alt tag to the image
+        addImage.setAttribute ("alt", "image of thumbs-up");
+
+        //Update the new <li> to the deck <ul>
+        deck.appendChild(liTag);
+
+    }
+}
+
+startGame();
+function removeCard() {
+    while (deck.hasChildNodes()) {
+        deck.removechilds(deck.firstChild);
+    }
+}
+function timer() {
+    time = setInterval (function() {
+        seconds++;
+        if (seconds === 60) {
+            minutes++;
+            seconds=0;
+        }
+
+        timeCounter.innerHTML = "<i class = 'fa fa-hourglass-start'></i>" + "Timer:" + minutes +"Mins" + seconds + "Secs";
+
+    }, 1000);
+}
+
+function stopTime() {
+    clearInterval(time);
+}
+
+function resetEverything () {
+    stopTime();
+    timeStart = false;
+    seconds = 0;
+    minutes = 0;
+    timeCounter.innerHTML = "<i class = 'fa fa-hourglass-start'></i>" + "Timer: 00:00";
+
+    //Reset star count and add the class back to show starts again
+     star[1].firstElementchild.classlist.add("fa-star");
+     star[2].firstElementchild.classlist.add("fa-star");
+     starCount = 3;
+
+     //Reset moves count abd reset its innerHTML
+     moves = 0;
+     movesCount.innerHTML = 0;
+
+     //Clear both arrays that hold the opened and matched cards
+     matched = [];
+     opened = [];
+
+     //clear the deck
+     removeCard();
+
+     //Create a new deck
+     startGame();
+
+}

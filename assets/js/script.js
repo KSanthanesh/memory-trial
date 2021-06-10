@@ -129,3 +129,29 @@ function resetEverything () {
      startGame();
 
 }
+function movescounter() {
+    movesCount.innerHtml ++;
+    moves++;
+}
+function starRating() {
+    if (moves ===10) {
+        star[2].firstElementChild.classList.remove("fa-star");
+        starCount --;
+    }
+    if (moves ===14) {
+        star[1].firstElementChild.classList.remove("fa-star");
+        starCount --; 
+    }
+}
+/* compare two cards to see if they match or not */
+function compareTwo() {
+    // when there are 2 cards in the opened Array
+    if (opened.length === 2) {
+        document.body.style.pointerEvents = "none";
+    }
+    if (opened.length === 2 && opened[0].src === opened[1].src) {
+        match();
+    } else if (opened.length === 2 && opened[0].src != opened[1].src) {
+        nomatch();
+}
+}

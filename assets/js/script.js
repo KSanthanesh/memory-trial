@@ -1,5 +1,5 @@
 // Array of deck of card images
-const deckCards = ["black-rose.jpg", "black-rose.jpg", "green-rose.jpg", "green-rose.jpg", "pink-rose.jpg", "pink-rose.jpg", "red-rose.png", "red-rose.png", "white-rose.jpg", "white-rose.jpg", "yellow-rose.jpg", "yellow-rose.jpg"];
+const deckCards = ["black-rose.jpg", "black-rose.jpg", "orange-rose.jpg","orange-rose.jpg","purple-rose.jpg","purple-rose.jpg","green-rose.jpg", "green-rose.jpg", "pink-rose.jpg", "pink-rose.jpg", "red-rose.png", "red-rose.png", "white-rose.jpg", "white-rose.jpg", "yellow-rose.jpg", "yellow-rose.jpg"];
 // global Arrays
 // access the <ul> with the class of .deck
 const deck = document.querySelector(".deck");
@@ -10,8 +10,8 @@ let opened = [];
 // create an empty Array to store the matched cards
 let matched = [];
 
-// Access the model
-const modal = document.getElementById("model");
+// Access the modal
+const modal = document.getElementById("modal");
 // Access the reset button
 let reset = document.querySelector(".reset-btn");
 // Access the play again button
@@ -71,7 +71,7 @@ function startGame() {
         addImage.setAttribute("src", "img/" + shuffledDeck[i]);
 
         // Add an alt tag to the image
-        addImage.setAttribute ("alt", "image of roses");
+        addImage.setAttribute ("img", "");
 
         //Update the new <li> to the deck <ul>
         deck.appendChild(liTag);
@@ -134,11 +134,11 @@ function movesCounter() {
     moves++;
 }
 function starRating() {
-    if (moves ===10) {
+    if (moves ===14) {
         star[2].firstElementChild.classList.remove("fa-star");
         starCount --;
     }
-    if (moves ===14) {
+    if (moves ===18) {
         star[1].firstElementChild.classList.remove("fa-star");
         starCount --; 
     }
@@ -213,7 +213,7 @@ window.onclick = function(event) {
 }
 
 function winGame () {
-    if (matched.length === 12) {
+    if (matched.length === 16) {
         stopTime();
         AddStats();
         displayModal();

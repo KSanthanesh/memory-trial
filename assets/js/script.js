@@ -1,5 +1,5 @@
 // Array of deck of card images
-const deckCards = ["black-rose.jpg", "black-rose.jpg", "green-rose.jpg", "green-rose.jpg", "pink-rose.jpg", "pink-rose.jpg", "red-rose.png", "red-rose.png", "white-rose.jpg", "white-rose.jpg", "yellow-rose.jpg", "yellow-rose.jpg",];
+const deckCards = ["assets/images/image of roses/black-rose.jpg", "assets/images/image of roses/black-rose.jpg", "assets/images/image of roses/green-rose.jpg", "assets/images/image of roses/green-rose.jpg", "assets/images/image of roses/pink-rose.jpg", "assets/images/image of roses/pink-rose.jpg", "assets/images/image of roses/red-rose.png", "assets/images/image of roses/red-rose.png", "assets/images/image of roses/white-rose.jpg", "assets/images/image of roses/white-rose.jpg", "assets/images/image of roses/yellow-rose.jpg", "assets/images/image of roses/yellow-rose.jpg",];
 // global Arrays
 // access the <ul> with the class of .deck
 let deck = document.querySelector(".deck");
@@ -71,7 +71,7 @@ function startGame() {
         addImage.setAttribute("src", "img/" + shuffledDeck[i]);
 
         // Add an alt tag to the image
-        addImage.setAttribute ("alt", "image of thumbs-up");
+        addImage.setAttribute ("alt", "image of roses");
 
         //Update the new <li> to the deck <ul>
         deck.appendChild(liTag);
@@ -155,3 +155,91 @@ function compareTwo() {
         nomatch();
 }
 }
+function match() {
+    setTimeout (function() {
+        opened[0].parentElement.classList.add("match");
+        opened[1].parentElement.classList.add("match");
+        matched.push(...opened)
+
+        document.body.style.pointerEvents = "auto";
+        winGame();
+        opened();
+    }, 600);
+    movescounter();
+    starRating();
+}
+
+function nomatch() {
+    setTimeout (function() {
+        opened[0].parentElement.classList.remove("flip");
+        opened[1].parentElement.classList.remove("flip");
+
+        document.body.style.pointerEvents = "auto";
+        
+        opened();
+    }, 700);
+    movescounter();
+    starRating();
+
+}
+function AddStats() {
+    let stats = document.querySelector(".modal-content");
+    for (let i = 1; i <= 3; i++) {
+        let.statsElement = document.createElement("p");
+        statsElement.classList.add("stats");
+        stats.appendChild(statsElement);
+    }
+    let p = stats.querySelectorAll("p.stats")
+    p[0].innerHTML = "Time tocomplete:" + minutes + "Minutes and" + seconds + "Seconds";
+    p[1].innerHTML = "Moves Taken:" + moves;
+    p[1].innerHTML = "Your Star Rating is:" + starCount + "Out of 3";
+}
+function displayModal() {
+    let modelClose = document.getElementById("close")[0];
+
+modal.style.display = "block";
+modalClose.onclick = function() {
+    modal.style.display = "none";
+};
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  };
+
+}
+
+function winGame () {
+    if (matched.length === 12) {
+        stopTime();
+        AddStats();
+        displayModal();
+    }
+
+}
+
+deck.addEventListener("click", function(evt) {
+     if (evt.target.nodeName === "LI") {
+         console.log(evt.target.nodeName + "was clicked");
+         if (timeStart === false) {
+             timeStart = true;
+             timer();
+         }
+           flipcard();
+     }
+     function flipcard() {
+         evt.target.classList.add("flip");
+         addToOpened();
+     }
+     function addToOpened() {
+         if (opened.length === 0 || opened.length === 1) {
+             opened.push (evt.target.firstElementChild);
+         }
+         compareTwo();
+     }
+})
+reset.addEventListener ('click', resetEverything);
+playAgain.addEventListener ('click', function() {
+    modal.style.display = "none";
+    resetEverything();
+});

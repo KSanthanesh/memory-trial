@@ -4,50 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="styleSheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <header class = "header">
-            <h1>Memory Game</h1>
-            <h2>Fallout Edition</h2>
-        </header>
-        <section class="score-panel">
-            <h3>Score Panel</h3>
-            <ul id= "star-rating" class= "star-rating">
-                <li class= "star"><i class= "fa fa-star"></i></li>
-                <li class= "star"><i class= "fa fa-star"></i></li>
-                <li class= "star"><i class= "fa fa-star"></i></li>
-            </ul>
-            <span class="moves-counter">0</span>Moves
-            <div class="timer-container">
-                <span class="timer"><i class="fa fa-hourglass-start"></i>Timer: 00:00</span>
-            </div>
-            <div class="reset">
-                <button class="btn reset-btn">Reset<i class="fa fa-repeat"></i></button>
-            </div>
-        </section>
-        <!-- Modal-->
-        <section class ="win-game-modal">
-            <div id="modal" class="modal">
-                <!--Modal Content-->
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>congratulations!</h2>
-                    <p> You have won the game and found all the pairs of cards.</p>
-                    <img class="modal-img" src="assets/images/thumbs-up.png" alt="Thumbs-up">
-                    <button class="btn play-again-btn">Play Again?</button>
-                </div>
-
-            </div>
-        </section>
-        <ul class="deck"></ul>
-    </div>
-
-
-
-
-    <script src="assets/js/script.js"></script>
+    <section class="memory-game">
+        <div class="memory-card" data.framework="black-rose">
+            <img class="front-face" src="assets/images/black-rose.jpg" alt="Black rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="black-rose">
+            <img class="front-face" src="assets/images/black-rose.jpg" alt="Black rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="green-rose">
+            <img class="front-face" src="assets/images/green-rose.jpg" alt="Green rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="green-rose">
+            <img class="front-face" src="assets/images/green-rose.jpg" alt="Green rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="orange-rose">
+            <img class="front-face" src="assets/images/orange-rose.jpg" alt="Orange rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="orange-rose">
+            <img class="front-face" src="assets/images/orange-rose.jpg" alt="Orange rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="pink-rose">
+            <img class="front-face" src="assets/images/pink-rose.jpg" alt="Pink rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="pink-rose">
+            <img class="front-face" src="assets/images/pink-rose.jpg" alt="Pink rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="white-rose">
+            <img class="front-face" src="assets/images/white Rose.jpg" alt="White rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="white-rose">
+            <img class="front-face" src="assets/images/white Rose.jpg" alt="Yellow rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+        <div class="memory-card" data.framework="yellow-rose">
+            <img class="front-face" src="assets/images/yellow-rose.jpg" alt="Yellow rose">
+            <img class="back-face" src="assets/images/blank.png" alt="Blank card">
+        </div>
+    </section>
+    
 </body>
 </html>

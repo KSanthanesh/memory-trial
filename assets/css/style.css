@@ -59,4 +59,37 @@
     line-height: 90rem;
     
 }
+.win-msg{
+	position: absolute;
+    top: 0px;
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background: #00000047;
+	display: none;
+}
+
+.win-msg .winMsgSect{
+	background-color: #ffffff;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 80px;
+    padding: 20px;
+    border-radius: 5px;
+	font-family: sans-serif;
+    position: relative;
+}
+.win-msg .winMsgSect h1{
+	color: #040780;
+    margin-bottom: 15px;
+}
+.win-msg .winMsgSect span{
+	position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 12px;
+    font-weight: 700;
+	cursor:pointer;
+}
 
